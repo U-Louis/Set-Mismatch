@@ -1,0 +1,26 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findErrorNums = function(nums) {
+
+let dummy = new Map();
+var total = (1 + nums.length) * nums.length / 2;
+var cleanedTotal = new Number();
+var duplicated = new Number();
+var missing = new Number();
+    
+    for(i=0; i<nums.length;i++){
+        if(dummy.has(nums[i])){
+            duplicated = nums[i];
+        }
+        else{
+            dummy.set(nums[i]);
+            cleanedTotal += nums[i];
+        }
+    }
+
+missing = total - (cleanedTotal- missing);
+    
+return [duplicated, missing];   
+};
