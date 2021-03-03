@@ -1,0 +1,10 @@
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var missingNumber = function(nums) {
+    totalNeeded = ((nums.length+1)* nums.length)/2;
+    currentTotal = nums.reduce(function(a,b){return a+b},0);
+    var missing = totalNeeded - currentTotal;
+    return missing;
+};
